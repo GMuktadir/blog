@@ -26,8 +26,8 @@ class RegistrationRequest extends FormRequest
     {
         //added by gm
         return [
-            'name' => 'required',
-            'email' => 'required|email',
+            'name' => 'required|string|max:255|min:3|unique:users,name',
+            'email' => 'required|email|max:255|unique:users,email',
             'password' => 'required|min:6|confirmed',
         ];
     }
